@@ -62,8 +62,10 @@ function PlanetItem({ planet }: { planet: Planet }) {
         ].map(terrainType => (
           <TerrainDot key={terrainType} terrainType={terrainType} />
         ))}
-        {!!+planet.diameter && <p>{`(Ø ${Intl.NumberFormat('en').format(+planet.diameter)} km)`}</p>}
         <div className="flex-1 flex justify-end items-center">
+          {!!+planet.diameter && (
+            <p className="text-sm sm:text-base">{`(Ø ${Intl.NumberFormat('en').format(+planet.diameter)} km)`}</p>
+          )}
           <MdChevronRight
             size={26}
             className={cn(
@@ -204,7 +206,7 @@ function PlanetItem({ planet }: { planet: Planet }) {
 function TerrainDot({ terrainType }: { terrainType: string }) {
   return (
     <div
-      className={cn('w-4 h-4 rounded-full', {
+      className={cn('w-3 h-3 sm:w-4 sm:h-4 rounded-full', {
         'bg-neutral-500': terrainType === 'air',
         'bg-slate-700': terrainType === 'city',
         'bg-green-700': terrainType === 'greens',

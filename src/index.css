@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.button {
+  @apply p-2 px-4 flex gap-1 items-center rounded-lg border-2 border-transparent disabled:text-gray-500
+  enabled:hover:bg-gray-900 enabled:hover:border-white transition-colors;
+}
